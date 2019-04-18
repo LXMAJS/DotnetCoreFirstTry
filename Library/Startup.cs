@@ -28,7 +28,7 @@ namespace Library
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddDbContext<DataBaseContext>(d => d.UseMySQL(Configuration.GetConnectionString("Default")));
+            services.AddDbContext<DataBaseContext>(d => d.UseMySQL(Configuration.GetConnectionString("MySQLConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

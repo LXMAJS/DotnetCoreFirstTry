@@ -4,27 +4,28 @@ using System.Linq;
 using System.Threading.Tasks;
 using DAL.Configuration;
 using DAL.Entities.Library;
+using DAL.Entities.System;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Library.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class AdminController : ControllerBase
     {
         private readonly DataBaseContext _context;
 
-        public UserController(DataBaseContext context)
+        public AdminController(DataBaseContext context)
         {
             _context = context;
         }
 
         // GET api/values
         [HttpGet]
-        public ActionResult<List<User>> Get()
+        public ActionResult<List<Administrator>> Get()
         {
-            var users = _context.Users.ToList();
-            return users;
+            var admins = _context.Administrators.ToList();
+            return admins;
         }
 
         // GET api/values/5
