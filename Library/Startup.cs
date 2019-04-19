@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DAL.Configuration;
+using Library.Chat;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -42,8 +43,10 @@ namespace Library
             {
                 app.UseHsts();
             }
-
-            app.UseHttpsRedirection();
+            // websocket中间件
+            app.UseWebSockets();
+            app.UseMiddleware<ChatWebSocketMiddleware>();
+            
             app.UseMvc();
         }
     }
